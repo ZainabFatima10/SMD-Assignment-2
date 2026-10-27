@@ -7,8 +7,35 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.zainabfatima.i221064.util.AvatarView;
+import com.zainabfatima.i221064.util.Db;
+import com.zainabfatima.i221064.util.Presence;
+import com.zainabfatima.i221064.util.Session;
+import com.zainabfatima.i221064.util.UserCache;
+
 /** Screen 19 - Menu. */
 public class MenuActivity extends AppCompatActivity {
+
+    private UserCache.Watch watch;
+
+    /** Marks the user offline, forgets the push token, signs out and clears the whole back stack. */
+    private void logout() {
+        findViewById(R.id.btnLogout).setEnabled(false);
+        Presence.goOfflineThen(() -> {
+            Session.onLogout();
+            Db.auth().signOut();
+            Intent i = new Intent(this, LoginActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            finish();
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (watch != null) watch.stop();
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +43,14 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         NavHelper.setup(this, NavHelper.MENU, "Menu");
 
-        NavHelper.avatar((TextView) findViewById(R.id.avJW), "JW", NavHelper.c("#0B5F61"));
+        final String me = Db.uid();
+        if (me != null) {
+            watch = UserCache.watch(me, u -> {
+                if (u == null) return;
+                ((AvatarView) findViewById(R.id.avJW)).bind(u);
+                ((TextView) findViewById(R.id.menuName)).setText(u.displayName());
+            });
+        }
 
         findViewById(R.id.cardProfile).setOnClickListener(v ->
                 startActivity(new Intent(this, MyProfileActivity.class)));
@@ -39,12 +73,7 @@ public class MenuActivity extends AppCompatActivity {
             t.setOnClickListener(v -> NavHelper.toast(this, t.getText().toString()));
         }
 
-        findViewById(R.id.btnLogout).setOnClickListener(v -> {
-            NavHelper.toast(this, "Logged out");
-            Intent i = new Intent(this, LoginActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
-        });
+        findViewById(R.id.btnLogout).setOnClickListener(v -> logout());
     }
 
     private void expander(int rowId, int subId, int arrowId) {

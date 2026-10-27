@@ -7,12 +7,23 @@ import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-/** Screen 1 - Splash (launcher). Shows the logo, then moves to Login. */
+import com.zainabfatima.i221064.util.Db;
+
+/**
+ * Screen 1 - Splash (launcher). Stays for 5 seconds, then goes straight to Home when somebody is
+ * already signed in, otherwise to Log in.
+ */
 public class MainActivity extends AppCompatActivity {
 
+    public static final long SPLASH_MS = 5000;
+
     private final Handler handler = new Handler(Looper.getMainLooper());
+    private long shownAt;
+    private long remaining = SPLASH_MS;
+
     private final Runnable next = () -> {
-        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        Class<?> target = Db.isLoggedIn() ? StartSocialMediaActivity.class : LoginActivity.class;
+        startActivity(new Intent(MainActivity.this, target));
         finish();
     };
 
@@ -20,22 +31,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
-        // tap anywhere to skip the wait
-        findViewById(R.id.main).setOnClickListener(v -> {
-            handler.removeCallbacks(next);
-            next.run();
-        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        handler.postDelayed(next, 2000);
+        shownAt = System.currentTimeMillis();
+        handler.postDelayed(next, remaining);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         handler.removeCallbacks(next);
+        // if the app is backgrounded mid-splash, only wait out the rest of the 5 seconds
+        remaining = Math.max(0, remaining - (System.currentTimeMillis() - shownAt));
     }
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/storyCard"
+    android:layout_width="90dp"
+    android:layout_height="160dp"
+    android:layout_marginEnd="10dp"
+    app:cardBackgroundColor="@color/SeaGreen"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp">
+
+    <ImageView
+        android:id="@+id/storyThumb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="#aa000000" />
+
+    <com.zainabfatima.i221064.util.AvatarView
+        android:id="@+id/storyAvatar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:id="@+id/storyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:padding="8dp"
+        android:text="Name"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        tools:ignore="SmallSp" />
+</androidx.cardview.widget.CardView>

@@ -21,11 +21,17 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/story_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/extra5"
                 android:scaleType="centerCrop"
                 android:contentDescription="@string/story_image"/>
+
+            <VideoView
+                android:id="@+id/story_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/close_button"
@@ -107,17 +113,17 @@
                 android:id="@+id/saturday_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="410dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="60dp"
+                android:visibility="gone"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:rotation="2"
                 android:background="@drawable/red_orange_label"
-                android:text="@string/saturday_plans"
+                android:text=""
                 android:textColor="@color/white"
                 android:fontFamily="@font/logo_text_bold"
                 android:textSize="22sp"/>
@@ -147,26 +153,10 @@
             android:gravity="center"
             android:background="@drawable/dark_pill">
 
-            <RelativeLayout
+            <com.zainabfatima.i221064.util.AvatarView
+                android:id="@+id/pillAvatar"
                 android:layout_width="28dp"
-                android:layout_height="28dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/seagreen_oval"
-                    android:contentDescription="@string/sea_green_default_profile_picture"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/jw"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="9sp"/>
-
-            </RelativeLayout>
+                android:layout_height="28dp" />
 
             <TextView
                 android:layout_width="wrap_content"

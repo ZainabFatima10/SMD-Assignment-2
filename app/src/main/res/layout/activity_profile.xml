@@ -22,13 +22,14 @@
             android:tint="@color/ink" />
 
         <TextView
+            android:id="@+id/profileTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="52dp"
             android:textStyle="bold"
             android:letterSpacing="-0.04"
-            android:text="Omar Farooq"
+            android:text=""
             android:textColor="@color/ink"
             android:textSize="20sp" />
 
@@ -64,32 +65,26 @@
                     android:id="@+id/cover"
                     android:layout_width="match_parent"
                     android:layout_height="207dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/art_cover_night" />
+                    android:background="@color/pill"
+                    android:scaleType="centerCrop" />
 
-                <TextView
+                <com.zainabfatima.i221064.util.AvatarView
                     android:id="@+id/avatar"
                     android:layout_width="164dp"
                     android:layout_height="164dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/bg_ring_profile"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:letterSpacing="-0.04"
-                    android:text="OF"
-                    android:textColor="#FFFFFF"
-                    android:textSize="56sp" />
+                    android:layout_centerHorizontal="true" />
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/profileName"
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
                 android:layout_marginTop="8dp"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:letterSpacing="-0.05"
-                android:text="Omar Farooq"
+                android:text=""
                 android:textColor="@color/ink"
                 android:textSize="29sp" />
 
@@ -99,16 +94,19 @@
                 android:layout_height="22dp"
                 android:layout_marginTop="4dp"
                 android:gravity="center"
-                android:text="1,204 friends · 38 mutual"
+                android:text=""
                 android:textColor="@color/ink2"
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/profileBio"
                 android:layout_width="match_parent"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:gravity="center"
-                android:text="Night photographer. Karachi after dark."
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text=""
                 android:textColor="@color/ink"
                 android:textSize="16sp" />
 
@@ -187,6 +185,7 @@
 
             <!-- mutual friends -->
             <LinearLayout
+                android:id="@+id/mutualRow"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:layout_marginStart="16dp"
@@ -195,39 +194,6 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:layout_width="84dp"
-                    android:layout_height="34dp">
-
-                    <TextView
-                        android:id="@+id/mf1"
-                        style="@style/AvatarText"
-                        android:backgroundTint="#A23B52"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:text="AK"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:id="@+id/mf2"
-                        style="@style/AvatarText"
-                        android:backgroundTint="#7B4F7F"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_marginStart="23dp"
-                        android:text="LM"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:id="@+id/mf3"
-                        style="@style/AvatarText"
-                        android:backgroundTint="#3F6E8C"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_marginStart="46dp"
-                        android:text="ZR"
-                        android:textSize="11sp" />
-                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/tvMutual"
@@ -236,7 +202,7 @@
                     android:layout_marginStart="4dp"
                     android:layout_weight="1"
                     android:lineSpacingExtra="0dp"
-                    android:text="Friends with Aisha Khan, Lina Marsh and 36 others"
+                    android:text=""
                     android:textColor="@color/ink"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -262,7 +228,7 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:padding="2dp"
-                    android:src="@drawable/ol_briefcase"
+                    android:src="@drawable/ol_person"
                     android:tint="@color/ink2" />
 
                 <TextView
@@ -270,7 +236,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Photographer at Studio Nocturne"
+                    android:text=""
                     android:textColor="@color/ink"
                     android:textSize="17sp" />
             </LinearLayout>
@@ -294,7 +260,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Lives in Karachi, Pakistan"
+                    android:text=""
                     android:textColor="@color/ink"
                     android:textSize="17sp" />
             </LinearLayout>
@@ -314,13 +280,21 @@
                     android:tint="@color/ink2" />
 
                 <TextView
+                    android:id="@+id/tvJoined"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Joined June 2017"
+                    android:text=""
                     android:textColor="@color/ink"
                     android:textSize="17sp" />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/photosSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
             <!-- photos -->
             <RelativeLayout
@@ -348,6 +322,7 @@
                     android:layout_centerVertical="true"
                     android:textStyle="bold"
                     android:text="See all"
+                    android:visibility="gone"
                     android:textColor="@color/teal"
                     android:textSize="17sp" />
             </RelativeLayout>
@@ -369,7 +344,7 @@
                     android:background="@drawable/bg_tile8"
                     android:clipToOutline="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/art_night" />
+                     />
 
                 <ImageView
                     android:id="@+id/ph2"
@@ -380,7 +355,7 @@
                     android:background="@drawable/bg_tile8"
                     android:clipToOutline="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/art_lilac" />
+                     />
 
                 <ImageView
                     android:id="@+id/ph3"
@@ -391,7 +366,8 @@
                     android:background="@drawable/bg_tile8"
                     android:clipToOutline="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/art_blue" />
+                     />
+            </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

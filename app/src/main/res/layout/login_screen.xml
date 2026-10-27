@@ -1,294 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/Porcelain"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="78dp"
-        android:layout_height="18dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="160dp"
-        android:layout_marginEnd="173dp"
-        android:text="@string/eng_uk"
-        android:textColor="@color/LightBrown" />
-
-
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginStart="-175dp"
-        android:layout_marginLeft="-160dp"
-        android:layout_toEndOf="@+id/text"
-        android:layout_toRightOf="@id/text"
-        android:src="@drawable/drop_down_arrow"/>
+        android:orientation="vertical"
+        android:paddingStart="15dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="16dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/text"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="165dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginEnd="166dp"
-        app:cardCornerRadius="25dp">
-
-        <ImageView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/relativeLayout"
-            android:background="@color/SeaGreen"
-            android:padding="8dp"
-            android:src="@drawable/kinnectlogo_nobackground">
-
-        </ImageView>
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cardView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="214dp"
-        android:text="@string/recent_login"
-        android:textColor="@color/LightBrown"
-        android:textStyle="bold"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/text2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        app:cardCornerRadius="25dp"
-        android:outlineSpotShadowColor="@color/Porcelain">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="94dp">
-            <ImageView
-                android:id="@+id/pfp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:src="@drawable/profile_pic_example">
-
-            </ImageView>
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:layout_toEndOf="@+id/pfp"
-                android:text="@string/jacob_west"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/pfp"
-                android:text="Tap to log in"
-                android:layout_marginTop="45dp"
-                android:textSize="12sp"
-                android:textColor="@color/gray"/>
+                android:text="@string/eng_uk"
+                android:textColor="@color/LightBrown" />
 
             <ImageView
-                android:layout_width="22dp"
-                android:layout_height="9dp"
-                android:layout_marginStart="166dp"
-                android:layout_marginTop="40dp"
-                android:layout_toEndOf="@+id/textView"
-                android:src="@drawable/three_dot_icon">
-
-            </ImageView>
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cardView2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="20dp"
-        android:outlineSpotShadowColor="@color/Porcelain"
-        app:cardCornerRadius="13dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="52dp">
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/first_login_value_title"
-                android:textColor="@color/gray"
-                android:textSize="12sp" />
+                android:layout_marginStart="6dp"
+                android:contentDescription="@null"
+                android:src="@drawable/drop_down_arrow" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/email"
-                android:textSize="15sp" />
-
-
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cardView3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="15dp"
-        android:outlineSpotShadowColor="@color/Porcelain"
-        app:cardCornerRadius="13dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="52dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/second_login_value_title"
-                android:textColor="@color/gray"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/password_encrypted"
-                android:textSize="15sp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            app:cardCornerRadius="25dp">
 
             <ImageView
-                android:layout_width="99dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="175dp"
-                android:layout_marginTop="15dp"
-                android:layout_toEndOf="@+id/textView3"
-                android:src="@drawable/reveal_icon">
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@color/SeaGreen"
+                android:contentDescription="@string/AppName"
+                android:padding="8dp"
+                android:src="@drawable/kinnectlogo_nobackground" />
+        </androidx.cardview.widget.CardView>
 
-            </ImageView>
+        <!-- RECENT LOGIN: the last account that signed in on this device -->
+        <LinearLayout
+            android:id="@+id/recentSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
 
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recent_login"
+                android:textColor="@color/LightBrown"
+                android:textStyle="bold" />
 
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="25dp">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/cardView4"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="15dp"
-        android:contentDescription="@string/login_button"
-        android:backgroundTint="@color/SeaGreen"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:background="@drawable/button_border_log_in"
-        android:text="@string/log_in">
-    </Button>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp">
 
-    <TextView
-        android:id="@+id/text4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="67dp"
-        android:text="@string/forget_password"
-        android:textColor="@color/SeaGreen"
-        android:textStyle="bold"
-        android:gravity="center">
+                    <com.zainabfatima.i221064.util.AvatarView
+                        android:id="@+id/recentAvatar"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp" />
 
-    </TextView>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/text4"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="15dp"
-        android:contentDescription="@string/login_button"
-        android:background="@drawable/porcelain_interior_seagreen_border"
-        android:textColor="@color/SeaGreen"
-        android:textAllCaps="false"
-        android:text="Create new account">
-    </Button>
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/jacob_west"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/button2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center"
-        android:layout_marginTop="70dp">
+                        <TextView
+                            android:id="@+id/tvRecentEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tap to fill in your email"
+                            android:textColor="@color/gray"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-            android:layout_alignRight="@id/textfinal"
-            android:layout_marginEnd="122dp"
-            android:layout_toStartOf="@+id/textfinal"
-            android:src="@drawable/tiny_kinnect_logo" />
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="9dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/three_dot_icon" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="13dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/first_login_value_title"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="emailAddress"
+                    android:background="@null"
+                    android:hint="name@example.com"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="40dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:cardCornerRadius="13dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="20dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="2dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/second_login_value_title"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+                        android:background="@null"
+                        android:hint="Your password"
+                        android:inputType="textPassword"
+                        android:minHeight="40dp"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnReveal"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="Show password"
+                    android:padding="3dp"
+                    android:src="@drawable/reveal_icon" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textfinal"
+            android:id="@+id/tvError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/Red_Orange"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_border_log_in"
+            android:contentDescription="@string/login_button"
+            android:text="@string/log_in"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/forget_password"
+            android:textColor="@color/SeaGreen"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/porcelain_interior_seagreen_border"
+            android:contentDescription="Create new account"
+            android:text="Create new account"
+            android:textAllCaps="false"
+            android:textColor="@color/SeaGreen" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kinnect &#x2022; from SMD" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@null"
+                android:src="@drawable/tiny_kinnect_logo" />
 
-    </RelativeLayout>
-
-
-</RelativeLayout>
+            <TextView
+                android:id="@+id/textfinal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Kinnect &#x2022; from SMD" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

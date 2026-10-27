@@ -13,37 +13,10 @@
         android:layout_width="64dp"
         android:layout_height="64dp">
 
-        <TextView
+        <com.zainabfatima.i221064.util.AvatarView
             android:id="@+id/avatar"
-            style="@style/AvatarText"
             android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:textSize="22sp" />
-
-        <RelativeLayout
-            android:id="@+id/grp"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/grpA"
-                style="@style/AvatarText"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/grpB"
-                style="@style/AvatarText"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:textSize="14sp" />
-        </RelativeLayout>
+            android:layout_height="64dp" />
 
         <View
             android:id="@+id/dot"
@@ -72,7 +45,7 @@
 
         <TextView
             android:id="@+id/preview"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:ellipsize="end"

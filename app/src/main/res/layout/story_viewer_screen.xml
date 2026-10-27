@@ -21,11 +21,33 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/story_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/extra8"
                 android:scaleType="centerCrop"
                 android:contentDescription="@string/story_image"/>
+
+            <VideoView
+                android:id="@+id/story_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
+
+            <View
+                android:id="@+id/tap_left"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="70dp"
+                android:layout_alignParentStart="true"/>
+
+            <View
+                android:id="@+id/tap_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="70dp"
+                android:layout_marginStart="120dp"/>
+
 
             <LinearLayout
                 android:id="@+id/story_progress"
@@ -36,45 +58,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginTop="12dp"
                 android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/white_progress"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/white_progress"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:background="@drawable/gray_progress">
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/white_progress"/>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/gray_progress"/>
-
-            </LinearLayout>
+</LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/story_header"
@@ -83,30 +67,11 @@
                 android:layout_alignTop="@id/story_progress"
                 android:layout_marginTop="16dp">
 
-                <RelativeLayout
+                <com.zainabfatima.i221064.util.AvatarView
                     android:id="@+id/story_pfp"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
-                    android:layout_marginStart="12dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/pfp_green"
-                        android:scaleX="1.2"
-                        android:scaleY="1.2"
-                        android:contentDescription="@string/pfp_green"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="@string/of"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="14sp"/>
-
-                </RelativeLayout>
+                    android:layout_marginStart="12dp"/>
 
                 <TextView
                     android:id="@+id/story_name"
@@ -116,7 +81,7 @@
                     android:layout_alignTop="@id/story_pfp"
                     android:layout_marginStart="54dp"
                     android:layout_marginTop="1dp"
-                    android:text="@string/omar_farooq"
+                    android:text=""
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
@@ -128,7 +93,7 @@
                     android:layout_alignStart="@id/story_name"
                     android:layout_alignTop="@id/story_pfp"
                     android:layout_marginTop="23dp"
-                    android:text="@string/_5h_x2022"
+                    android:text=""
                     android:textColor="@color/white"
                     android:textSize="12sp"/>
 
@@ -171,13 +136,14 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="250dp"
+                android:visibility="gone"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:rotation="-3"
                 android:background="@drawable/white_label"
-                android:text="@string/karachi_nights"
+                android:text=""
                 android:textColor="@color/black"
                 android:fontFamily="@font/logo_text_bold"
                 android:textSize="24sp"/>

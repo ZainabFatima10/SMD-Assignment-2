@@ -14,12 +14,10 @@
         android:layout_height="64dp"
         android:layout_alignParentStart="true">
 
-        <TextView
+        <com.zainabfatima.i221064.util.AvatarView
             android:id="@+id/avatar"
-            style="@style/AvatarText"
             android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:textSize="22sp" />
+            android:layout_height="64dp" />
     </RelativeLayout>
 
     <RelativeLayout
