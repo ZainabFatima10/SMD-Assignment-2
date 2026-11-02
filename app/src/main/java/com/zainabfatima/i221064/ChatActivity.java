@@ -389,8 +389,8 @@ public class ChatActivity extends AppCompatActivity {
         @Override public int getItemCount() { return messages.size(); }
 
         class Holder extends RecyclerView.ViewHolder {
-            final View msgRow, bubble;
-            final LinearLayout col;
+            final LinearLayout msgRow, col;
+            final View bubble;
             final AvatarView avatar;
             final TextView sysText, quote, postLabel, text, meta;
             final ImageView image;

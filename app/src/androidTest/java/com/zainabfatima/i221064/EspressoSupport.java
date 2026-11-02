@@ -5,7 +5,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 import androidx.test.espresso.NoMatchingViewException;
-import androidx.test.espresso.AssertionFailedError;
+import junit.framework.AssertionFailedError;
 import androidx.test.espresso.assertion.ViewAssertions;
 import androidx.test.platform.app.InstrumentationRegistry;
 

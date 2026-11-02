@@ -64,7 +64,10 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.googleid)
     implementation(libs.material)
 
     // Firebase: Authentication, Realtime Database, Cloud Messaging
@@ -74,7 +77,7 @@ dependencies {
     implementation(libs.firebase.messaging)
 
     // Agora voice & video calls
-    implementation(libs.agora.full.sdk)
+    implementation(libs.agora.rtc.basic)
 
     // Image loading (profile pictures, post images stored as Base64 strings)
     implementation(libs.glide)
