@@ -46,7 +46,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public static final String EXTRA_SETUP = "setup";
 
-    private static final String USERNAME_PATTERN = "[a-z0-9._]{3,20}";
+    private static final String USERNAME_PATTERN = "[a-z0-9_]{3,20}";
 
     private boolean setupMode;
     private User me;
@@ -133,9 +133,9 @@ public class EditProfileActivity extends AppCompatActivity {
                 debounce.removeCallbacksAndMessages(null);
                 final String typed = s.toString().trim().toLowerCase(Locale.ROOT);
                 if (typed.isEmpty()) {
-                    status("3-20 letters, numbers, dots or underscores", 0xFF8B898E);
+                    status("3-20 letters, numbers or underscores", 0xFF8B898E);
                 } else if (!typed.matches(USERNAME_PATTERN)) {
-                    status("Use 3-20 letters, numbers, dots or underscores", 0xFFBA4929);
+                    status("Use 3-20 letters, numbers or underscores", 0xFFBA4929);
                 } else {
                     status("Checking...", 0xFF8B898E);
                     debounce.postDelayed(() -> checkAvailability(typed), 350);
@@ -183,7 +183,12 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private void checkAvailability(final String lower) {
         checkedFor = lower;
-        Db.usernames().child(lower).addListenerForSingleValueEvent(new ValueEventListener() {
+        if (!lower.matches(USERNAME_PATTERN)) {
+            status("Use 3-20 letters, numbers or underscores", 0xFFBA4929);
+            return;
+        }
+        String safeKey = lower.replaceAll("[.#$\\[\\]/]", "_");
+        Db.usernames().child(safeKey).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot s) {
                 if (!lower.equals(checkedFor)) return;   // user kept typing
                 String owner = s.getValue(String.class);
@@ -211,7 +216,7 @@ public class EditProfileActivity extends AppCompatActivity {
             return;
         }
         if (!lower.matches(USERNAME_PATTERN)) {
-            etUsername.setError("Use 3-20 letters, numbers, dots or underscores");
+            etUsername.setError("Use 3-20 letters, numbers or underscores");
             return;
         }
         if (!usernameOk && !lower.equals(originalUsernameLower)) {
@@ -248,7 +253,8 @@ public class EditProfileActivity extends AppCompatActivity {
     private interface BoolCallback { void done(boolean ok); }
 
     private void claimUsername(final String uid, final String lower, final BoolCallback cb) {
-        Db.usernames().child(lower).runTransaction(new Transaction.Handler() {
+        String safeKey = lower.replaceAll("[.#$\\[\\]/]", "_");
+        Db.usernames().child(safeKey).runTransaction(new Transaction.Handler() {
             @NonNull @Override public Transaction.Result doTransaction(@NonNull MutableData d) {
                 String cur = d.getValue(String.class);
                 if (cur == null || cur.equals(uid)) {
@@ -279,7 +285,8 @@ public class EditProfileActivity extends AppCompatActivity {
         Db.user(uid).updateChildren(up).addOnSuccessListener(x -> {
             // release the old username so somebody else can use it
             if (!originalUsernameLower.isEmpty() && !originalUsernameLower.equals(lower)) {
-                Db.usernames().child(originalUsernameLower).removeValue();
+                String safeOriginal = originalUsernameLower.replaceAll("[.#$\\[\\]/]", "_");
+                Db.usernames().child(safeOriginal).removeValue();
             }
             me.name = name;
             me.username = username;

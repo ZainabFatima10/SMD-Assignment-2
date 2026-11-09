@@ -6,6 +6,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,7 +57,25 @@ public class KinnectApp extends Application implements Application.ActivityLifec
         }
     }
 
-    @Override public void onActivityCreated(@NonNull Activity a, @Nullable Bundle b) { }
+    @Override
+    public void onActivityCreated(@NonNull Activity a, @Nullable Bundle b) {
+        if (a.getWindow() != null) {
+            View decor = a.getWindow().getDecorView();
+            androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(decor, (v, insets) -> {
+                androidx.core.graphics.Insets statusInsets = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.statusBars());
+                View content = a.findViewById(android.R.id.content);
+                if (content != null && statusInsets.top > 0) {
+                    content.setPadding(
+                        content.getPaddingLeft(),
+                        statusInsets.top,
+                        content.getPaddingRight(),
+                        content.getPaddingBottom()
+                    );
+                }
+                return insets;
+            });
+        }
+    }
     @Override public void onActivityResumed(@NonNull Activity a) { }
     @Override public void onActivityPaused(@NonNull Activity a) { }
     @Override public void onActivitySaveInstanceState(@NonNull Activity a, @NonNull Bundle b) { }
