@@ -152,7 +152,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         void bindMe(User u) {
             if (u == null) return;
             avatar.bind(u);
-            String first = u.displayName().split(" ")[0];
+            String display = u.displayName().trim();
+            String first = display.split("\\s+")[0];
             prompt.setText("What's on your mind, " + first + "?");
         }
     }

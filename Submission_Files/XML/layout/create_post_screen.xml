@@ -81,7 +81,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/jacob_west"
+            android:text=""
             android:textStyle="bold"
             android:layout_alignStart="@id/seagreenpfp"
             android:layout_marginStart="80dp"

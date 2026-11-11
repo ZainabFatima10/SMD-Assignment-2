@@ -85,6 +85,8 @@ public class MyProfileActivity extends AppCompatActivity {
         }
         NavHelper.click(this, R.id.find_friends, () -> startActivity(new Intent(this, SearchActivity.class)));
 
+        User cached = UserCache.peek(me);
+        if (cached != null) bind(cached);
         watch = UserCache.watch(me, this::bind);
 
         friendsRef = Db.friends(me);

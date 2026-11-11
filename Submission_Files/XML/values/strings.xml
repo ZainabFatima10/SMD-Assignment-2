@@ -4,7 +4,7 @@
     <string name="eng_uk">English (UK)</string>
     <string name="recent_login">RECENT LOGIN</string>
     <string name="password_encrypted"><![CDATA[&#x2022; &#x2022; &#x2022; &#x2022; &#x2022; &#x2022; &#x2022; &#x2022; &#x2022; &#x2022; &#x2022;]]></string>
-    <string name="email">jacob.west@mail.com</string>
+    <string name="email">user@mail.com</string>
     <string name="first_login_value_title">Mobile number or email</string>
     <string name="second_login_value_title">Password</string>
     <string name="login_button">Login Button</string>
@@ -13,7 +13,7 @@
     <string name="kinnect">kinnect</string>
     <string name="_3">3</string>
     <string name="sea_green_default_profile_picture">Sea Green Default Profile Picture</string>
-    <string name="what_s_on_your_mind_jacob">What\'s on your mind, Jacob?</string>
+    <string name="what_s_on_your_mind_jacob">What\'s on your mind?</string>
     <string name="search_icon">search icon</string>
     <string name="message_icon">message icon</string>
     <string name="home_icon">home icon</string>
@@ -73,7 +73,7 @@
     <string name="prompt">Write a reply...</string>
     <string name="cancel">Cancel</string>
     <string name="post_button_text">Post</string>
-    <string name="jacob_west">Jacob West</string>
+    <string name="jacob_west"></string>
     <string name="public_text">Public</string>
     <string name="album">Album</string>
     <string name="creating_post_text">Weekend plan: coffee, sketching, and absolutely no email.</string>
@@ -212,7 +212,7 @@
     <string name="edit">Edit</string>
     <string name="name">Name</string>
     <string name="username">Username</string>
-    <string name="username_value">jacob.west</string>
+    <string name="username_value"></string>
     <string name="website">Website</string>
     <string name="bio_label">Bio</string>
     <string name="bio_short">Digital goodies designer.</string>

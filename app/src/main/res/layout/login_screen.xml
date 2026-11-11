@@ -103,7 +103,7 @@
                             android:id="@+id/textView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/jacob_west"
+                            android:text=""
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />

@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.zainabfatima.i221064.model.User;
 import com.zainabfatima.i221064.util.AvatarView;
 import com.zainabfatima.i221064.util.Db;
 import com.zainabfatima.i221064.util.Presence;
@@ -45,6 +46,11 @@ public class MenuActivity extends AppCompatActivity {
 
         final String me = Db.uid();
         if (me != null) {
+            User cached = UserCache.peek(me);
+            if (cached != null) {
+                ((AvatarView) findViewById(R.id.avJW)).bind(cached);
+                ((TextView) findViewById(R.id.menuName)).setText(cached.displayName());
+            }
             watch = UserCache.watch(me, u -> {
                 if (u == null) return;
                 ((AvatarView) findViewById(R.id.avJW)).bind(u);

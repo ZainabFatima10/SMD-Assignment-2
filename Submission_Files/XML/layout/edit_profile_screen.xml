@@ -205,7 +205,7 @@
                     android:layout_marginEnd="18dp"
                     android:gravity="center_vertical"
                     android:background="@drawable/one_sided_black_border"
-                    android:text="@string/jacob_west"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="16sp"/>
 

@@ -16,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.zainabfatima.i221064.model.User;
 import com.zainabfatima.i221064.feed.PostRepo;
 import com.zainabfatima.i221064.util.Async;
 import com.zainabfatima.i221064.util.AvatarView;
@@ -71,6 +72,11 @@ public class CreatePostActivity extends AppCompatActivity {
         TextView name = findViewById(R.id.authorName);
         String uid = Db.uid();
         if (uid != null) {
+            User c = UserCache.peek(uid);
+            if (c != null) {
+                avatar.bind(c);
+                name.setText(c.displayName());
+            }
             UserCache.get(uid, u -> {
                 if (u == null) return;
                 avatar.bind(u);
